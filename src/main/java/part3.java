@@ -30,7 +30,7 @@ public class part3<E> {
         }
 
         wrapperUnionList(0);
-
+        return  res;
     }
     //return true if list2 is subset of list1
     public boolean isSubset()
