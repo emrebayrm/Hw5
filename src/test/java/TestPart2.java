@@ -1,8 +1,8 @@
 /**
  * Created by emre on 3/30/16.
  */
-public class part2Test {
-    public static void main(String[] args)
+public class TestPart2 {
+    public static void Start()
     {
         part2<Integer> test = new part2<Integer>();
 

@@ -11,7 +11,7 @@ public class TestHonoi {
                 + " to peg " + destPeg + "\n"
                 + TesterRecursiveHonoi (disksize - 1 , tempPeg , destPeg , startPeg) ;
     }
-    public static void main(String args[])
+    public static void Start()
     {
         System.out.println("\n   Test Runs with 4 disk");
         TowerOfHonoi.ShowMoves(4,'A','C','B');
