@@ -16,8 +16,8 @@ public class TestHonoi {
     public static void main(String args[])
     {
         System.out.println("   ");
-        TowerOfHonoi.ShowMoves(3,'A','C','B');
-        String str = TesterRecursiveHonoi(3,'A','C','B');
+        TowerOfHonoi.ShowMoves(4,'A','C','B');
+        String str = TesterRecursiveHonoi(4,'A','C','B');
         System.out.println("\n Test Function Runs Now \n");
         System.out.println(str);
 
