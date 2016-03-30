@@ -6,6 +6,13 @@ import java.lang.Math;
 import java.util.Stack;
 
 public class TowerOfHonoi {
+    /**
+     * Shows All moves to complete Puzzle
+     * @param disksize is amount of disks
+     * @param src is source peg's Character
+     * @param dest is destination peg's character
+     * @param aux is Temporary peg's Character
+     */
     public static void ShowMoves(int disksize,char src,char dest,char aux)
     {
         Stack<Integer>  source = new Stack<Integer>();
@@ -20,34 +27,41 @@ public class TowerOfHonoi {
             for(int i = 1; i <= movetimes; ++i) {
                 if(i % 3 == 1)
                 {
-                    moveDisksBetweenTwoPoles(source,auxilary,'A','B');
+                    moveDisksBetweenTwoPoles(source,auxilary,src,aux);
                 }
                 if(i% 3 == 2)
                 {
-                    moveDisksBetweenTwoPoles(source,destination,'A','C');
+                    moveDisksBetweenTwoPoles(source,destination,src,dest);
                 }
                 if (i % 3 == 0)
                 {
-                    moveDisksBetweenTwoPoles(auxilary,destination,'B','C');
+                    moveDisksBetweenTwoPoles(auxilary,destination,aux,dest);
                 }
             }
         else
         for(int i = 1; i <= movetimes; ++i) {
             if(i % 3 == 1)
             {
-                moveDisksBetweenTwoPoles(source,destination,'A','C');
+                moveDisksBetweenTwoPoles(source,destination,src,dest);
             }
             if(i% 3 == 2)
             {
-                moveDisksBetweenTwoPoles(source,auxilary,'A','B');
+                moveDisksBetweenTwoPoles(source,auxilary,src,aux);
             }
             if (i % 3 == 0)
             {
-                moveDisksBetweenTwoPoles(destination,auxilary,'C','B');
+                moveDisksBetweenTwoPoles(destination,auxilary,dest,aux);
             }
         }
     }
 
+    /**
+     * Helper method to move disk
+     * @param src source stack
+     * @param dest destination stack
+     * @param s source of Character
+     * @param d destination of Character
+     */
     private static void moveDisksBetweenTwoPoles( Stack<Integer> src, Stack<Integer> dest, char s, char d)
     {
         // When pole 1 is empty
