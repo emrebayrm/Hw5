@@ -7,7 +7,7 @@ import java.util.List;
 public class part3<E> {
     private E data1[];
     private E data2[];
-    private List<E> res = new ArrayList();
+    private List<E> res = new ArrayList<E>();
 
     /**
      * Construrctor
@@ -26,7 +26,9 @@ public class part3<E> {
      */
     public List<E> intersectionOfLists()
     {
-         res.clear();
+        res.clear();
+        if(data2.length == 0 || data1.length == 0)
+            return res;
         wrapperInterSection(0,0);
         return res;
     }
@@ -38,9 +40,23 @@ public class part3<E> {
     public List<E> unionOfLists()
     {
         res.clear();
-        for (E val:data1) {
+
+        if (data1.length == 0)
+        {
+            for (E val:data2) {
                 res.add(val);
+            }
+            return res;
         }
+        if (data2.length == 0)
+        {
+            for (E val:data1) {
+                res.add(val);
+            }
+            return res;
+        }
+
+
 
         wrapperUnionList(0);
         return  res;
@@ -48,10 +64,26 @@ public class part3<E> {
 
     /**
      * return true if list2 is subset of list1
-     * @return
+     * Example:
+     *         Integer arr1[] = {1,2,3,5,9,7,6};
+     *         Integer arr2[] = {};
+     *         part3<Integer> integerpart3;
+     *         integerpart3 = new part3(arr1,arr2);
+     *
+     *         returns true
+     *         in vice versa so you call as
+     *                            part3(arr2,arr1);
+     *         returns false
+     * @return whether is subset or not
      */
     public boolean isSubset()
     {
+        if(data2.length == 0)
+            return true;
+        if(data1.length == 0)
+            return false;
+        if(data1.length < data2.length)
+            return false;
         return wrapperIsSubset(0);
     }
 
