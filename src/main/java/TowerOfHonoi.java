@@ -67,25 +67,25 @@ public class TowerOfHonoi {
         // When pole 1 is empty
         if (src.empty())
         {
-            System.out.printf("Move the disk %d from \'%c\' to \'%c\' \n",  src.push(dest.pop()), d, s);
+            System.out.printf("Move the disk %d from %c to %c \n",  src.push(dest.pop()), d, s);
         }
 
         // When pole2 pole is empty
         else if (dest.empty())
         {
-            System.out.printf("Move the disk %d from \'%c\' to \'%c\' \n", dest.push( src.pop()), s, d);
+            System.out.printf("Move the disk %d from %c to %c \n", dest.push( src.pop()), s, d);
         }
 
         // When top disk of pole1 > top disk of pole2
         else if (src.peek() > dest.peek())
         {
-            System.out.printf("Move the disk %d from \'%c\' to \'%c\' \n", src.push( dest.pop()), d, s);
+            System.out.printf("Move the disk %d from %c to %c \n", src.push( dest.pop()), d, s);
         }
 
         // When top disk of pole1 < top disk of pole2
         else
         {
-            System.out.printf("Move the disk %d from \'%c\' to \'%c\' \n", dest.push( src.pop()), s, d);
+            System.out.printf("Move the disk %d from %c to %c \n", dest.push( src.pop()), s, d);
         }
     }
 }

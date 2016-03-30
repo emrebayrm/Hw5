@@ -1,5 +1,3 @@
-import java.awt.peer.SystemTrayPeer;
-
 /**
  * Created by emre on 3/29/16.
  */

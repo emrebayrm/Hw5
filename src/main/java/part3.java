@@ -94,9 +94,8 @@ public class part3<E> {
      */
     private void wrapperInterSection(int i,int j)
     {
-        if(i == data1.length -1 && j == data2.length -1)
-            return ;
-        else {
+        if(i != data1.length -1 || j != data2.length -1)
+        {
             if (data1[i] == data2[j])
                 res.add(data1[i]);
             if (j == data2.length -1 ) {
