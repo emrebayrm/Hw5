@@ -30,6 +30,9 @@ public class part3<E> {
         if(data2.length == 0 || data1.length == 0)
             return res;
         wrapperInterSection(0,0);
+        //last item check
+        if(data1[data1.length - 1] == data2[data2.length - 1])
+            res.add(data1[data1.length -1 ]);
         return res;
     }
 
@@ -56,7 +59,9 @@ public class part3<E> {
             return res;
         }
 
-
+        for (E val: data1) {
+            res.add(val);
+        }
 
         wrapperUnionList(0);
         return  res;
@@ -64,16 +69,21 @@ public class part3<E> {
 
     /**
      * return true if list2 is subset of list1
-     * Example:
+     * <p>&nbsp&nbsp <b>Example:</b></p>
+     * <pre>
+     *         {@code
      *         Integer arr1[] = {1,2,3,5,9,7,6};
      *         Integer arr2[] = {};
      *         part3<Integer> integerpart3;
      *         integerpart3 = new part3(arr1,arr2);
-     *
+     *         }
+     *         </pre>
+     *         <p>
      *         returns true
      *         in vice versa so you call as
-     *                            part3(arr2,arr1);
+     *                            <p>part3(arr2,arr1);</p>
      *         returns false
+     *         <p/>
      * @return whether is subset or not
      */
     public boolean isSubset()
@@ -126,10 +136,10 @@ public class part3<E> {
     private boolean wrapperIsSubset(int i)
     {
         boolean flag = true;
-        if(i == data1.length)
+        if(i == data2.length)
             return true;
 
-        if(!isin(data1[i],0))
+        if(!isin(data2[i],0))
             flag = false;
         return (flag && wrapperIsSubset(i + 1));
     }
@@ -142,9 +152,9 @@ public class part3<E> {
      */
     private boolean isin(E data , int i)
     {
-        if(i == data2.length)
+        if(i == data1.length)
             return false;
-        if( data == data2[i])
+        if( data == data1[i])
             return true;
         return  isin(data , i + 1);
     }

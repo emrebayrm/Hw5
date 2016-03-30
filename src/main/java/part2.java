@@ -1,11 +1,10 @@
 /**
  * Created by emre on 3/30/16.
  */
-import java.util.LinkedList;
-
 public class part2<E>{
 
     private Node<E> head; // Root of Node
+    private int size = 0;
 
     /**
      * Constructor  with no parameter creates a new root
@@ -39,6 +38,7 @@ public class part2<E>{
          */
         public Node(E data)
         {
+            size++;
             this.data = data;
             next = null;
         }
@@ -75,6 +75,8 @@ public class part2<E>{
      */
     public boolean remove(E outData)
     {
+        if(size == 0)
+            return false;
         if(head == null)
             return false;
         if(head.next.data.equals(outData))
@@ -94,13 +96,18 @@ public class part2<E>{
      */
     public boolean remove(Node<E> head, Node<E> pred, E outData)
     {
+        boolean flag;
         if(head == null)
-            return true;
-        if(head.data.equals(outData))
+           return false;
+        else if(head.data.equals(outData))
         {
+            --size;
             pred.next = head.next;
+            flag = true;
         }
-        return remove(head.next,head,outData);
+        else flag = false;
+
+        return  flag || remove(head.next,head,outData);
     }
 
     public void showList()

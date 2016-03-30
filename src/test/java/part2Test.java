@@ -6,6 +6,8 @@ public class part2Test {
     {
         part2<Integer> test = new part2<Integer>();
 
+        System.out.println("   Firstly Trying to remove before adding and result is : " + test.remove(5));
+
         test.add(5);
         test.add(7);
         test.add(1);
@@ -17,12 +19,13 @@ public class part2Test {
         test.add(2);
         test.add(5);
 
-        System.out.println("Before : ");
+        System.out.println("\n\nAfter Adding some Numbers and List is like that : ");
         test.showList();
 
-        test.remove(5);
+        System.out.println("after Deleting 5 method returned : " + test.remove(5));
+        test.showList();
 
-        System.out.println("after Deleting 5 : ");
+        System.out.println("Now Trying to remove 3 which is not in the list method returned : " + test.remove(3));
         test.showList();
     }
 }
